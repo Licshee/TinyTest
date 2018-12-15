@@ -5,7 +5,9 @@ using System.Linq;
 
 class TinyTest
 {
-    public static void Test(string root, ushort size = ushort.MaxValue)
+    const int SANE_BUFFER_SIZE = 0x1000;
+
+    public static void Test(string root, ushort size = SANE_BUFFER_SIZE)
     {
         new TinyTest(root, size).Test();
     }
@@ -16,12 +18,12 @@ class TinyTest
     string root;
     Queue<FileInfo> list;
 
-    public TinyTest(string root, ushort size = ushort.MaxValue)
+    public TinyTest(string root, ushort size = SANE_BUFFER_SIZE)
     {
         Init(root, size);
     }
 
-    public void Init(string root, ushort size = ushort.MaxValue)
+    public void Init(string root, ushort size = SANE_BUFFER_SIZE)
     {
         this.root = root;
         list = new Queue<FileInfo>();
